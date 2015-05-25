@@ -1,5 +1,5 @@
 import plugintypes
-from random import randint
+from random import randrange
 import sys
 
 class Magic8BallPlugin(plugintypes.TelegramPlugin):
@@ -29,6 +29,6 @@ class Magic8BallPlugin(plugintypes.TelegramPlugin):
         
     def run(self, msg, matches):
         try:
-            return self.responses[randint(len(self.responses))]
+            return self.responses[randrange(len(self.responses))]
         except:
             return sys.exc_info()[0]
