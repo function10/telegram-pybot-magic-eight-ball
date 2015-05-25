@@ -1,5 +1,6 @@
 import plugintypes
 import random
+import sys
 
 class Magic8BallPlugin(plugintypes.TelegramPlugin):
 	"""
@@ -13,4 +14,7 @@ class Magic8BallPlugin(plugintypes.TelegramPlugin):
 	rand_number = random.randint(0, len(std_8ball_responses))
 
 	def run(self, msg, matches):
-		return std_8ball_responses[rand_number]
+		try:
+			return std_8ball_responses[rand_number]
+		except:
+			return sys.exc_info()[0]
