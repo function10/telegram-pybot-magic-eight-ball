@@ -1,5 +1,5 @@
 import plugintypes
-import random
+from random import randint
 import sys
 
 class Magic8BallPlugin(plugintypes.TelegramPlugin):
@@ -10,11 +10,25 @@ class Magic8BallPlugin(plugintypes.TelegramPlugin):
     patterns = ["^!8ball (.*)"]
     usage = ["!8ball <question>"]
     
-    std_8ball_responses = ["Maybe","Probably","Yes", "No","In you're dreams", "Not Likely", "That could be the case", "Absolutely", "Most definitely", "No way"]
-    rand_number = random.randint(0, len(std_8ball_responses))
 
+    def __init__(self):
+        super().__init__()
+
+        self.responses = [
+                "Maybe", 
+                "Probably", 
+                "Yes", 
+                "No", 
+                "In you're dreams", 
+                "Not Likely", 
+                "That could be the case", 
+                "Absolutely", 
+                "Most definitely", 
+                "No way"
+            ]
+        
     def run(self, msg, matches):
         try:
-            return std_8ball_responses[rand_number]
+            return std_8ball_responses[randint(len(self.responses))]
         except:
             return sys.exc_info()[0]
