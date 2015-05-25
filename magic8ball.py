@@ -28,10 +28,14 @@ class Magic8BallPlugin(plugintypes.TelegramPlugin):
             ]
         
     def run(self, msg, matches):
+        qwords = ["will", "am", "is"]
+        bad_qwords = ["who", "what", "where", "when", "why", "how"]
+        first_word = matches.group(1).lower().split()
+
         try:
-            if "will" in matches.group(1).lower():
+            if first_word in qwords:
                 return self.responses[randrange(len(self.responses))]
-            elif "what" or "where" or "when" or "why" or "how" in matches.group(1).lower():
+            elif first_word in bad_qwords:
                 return "Those are questions I'm not sure how to answer. Perhaps you can ask Google."
             else:
                 return "I'm not even sure that was a question!"
