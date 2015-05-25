@@ -1,0 +1,7 @@
+{
+	"name": "Magic Eight Ball",
+	"description": "ask me a question about your life.",
+	"version": "0.1",
+	"homepage": "https://github.com/function10/telegram-pybot-magic-eight-ball",
+	"repo": "https://github.com/function10/telegram-pybot-magic-eight-ball.git"
+}
