@@ -29,6 +29,11 @@ class Magic8BallPlugin(plugintypes.TelegramPlugin):
         
     def run(self, msg, matches):
         try:
-            return self.responses[randrange(len(self.responses))]
+            if "will" in matches.group(1).lower():
+                return self.responses[randrange(len(self.responses))]
+            elif "what" or "where" or "when" or "why" or "how" in matches.group(1).lower():
+                return "Those are questions I'm not sure how to answer. Perhaps you can ask Google."
+            else:
+                return "I'm not even sure that was a question!"
         except:
             return sys.exc_info()[0]
