@@ -28,7 +28,7 @@ class Magic8BallPlugin(plugintypes.TelegramPlugin):
             ]
         
     def run(self, msg, matches):
-        qwords = ["will", "am", "is"]
+        qwords = ["will", "am", "is", "does", "are"]
         bad_qwords = ["who", "what", "where", "when", "why", "how"]
         first_word = matches.group(1).lower().split()[0]
 
