@@ -24,11 +24,14 @@ class Magic8BallPlugin(plugintypes.TelegramPlugin):
                 "That could be the case", 
                 "Absolutely", 
                 "Most definitely", 
-                "No way"
+                "No way",
+                "Try Again.",
+                "Most definitely not",
+                "I'm not feeling it.. ask me again"
             ]
         
     def run(self, msg, matches):
-        qwords = ["will", "am", "is", "does", "are"]
+        qwords = ["will", "am", "is", "does", "are", "shall", "isn't"]
         bad_qwords = ["who", "what", "where", "when", "why", "how"]
         first_word = matches.group(1).lower().split()[0]
 
